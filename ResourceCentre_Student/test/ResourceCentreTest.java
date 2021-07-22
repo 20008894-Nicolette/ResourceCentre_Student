@@ -172,6 +172,13 @@ public class ResourceCentreTest {
 	public void testDoReturnCamcorder() {
 		// fail("Not yet implemented");
 		// write your code here
+		// Test if the Item list is not null
+		assertNotNull("Test if these is a valid Camcorder arraylist to loan from", camcorderList);
+
+		// Test if the Item list is null and shows an exception error
+		assertNull("Test if there is no valid Camcorder arraylist to loan from", camcorderList);
+		
+		
 
 	}
 
@@ -179,6 +186,12 @@ public class ResourceCentreTest {
 	public void testDoReturnChromebook() {
 		// fail("Not yet implemented");
 		// write your code here
+		// Test if the Item list is not null
+		assertNotNull("Test if these is a valid Chromebook arraylist to loan from", chromebookList);
+
+		// Test if the Item list is null and shows an exception error
+		assertNull("Test if there is no valid Chromebook arraylist to loan from", chromebookList);
+		
 	}
 
 	@After
