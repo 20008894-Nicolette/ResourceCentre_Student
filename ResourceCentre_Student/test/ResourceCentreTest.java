@@ -36,7 +36,11 @@ public class ResourceCentreTest {
 	public void testAddCamcorder() {
 		// Item list is not null, so that can add a new item
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
-		
+		String tag = Helper.readString("Enter asset tag > ");
+		String description = Helper.readString("Enter description > ");
+		int zoom = Helper.readInt("Enter optical zoom > ");
+		Camcorder cc = new Camcorder(tag, description, zoom);
+		return;
 		//Given an empty list, after adding 1 item, the size of the list is 1
 		ResourceCentre.addCamcorder(camcorderList, cc1);		
 		assertEquals("Test if that Camcorder arraylist size is 1?", 1, camcorderList.size());
