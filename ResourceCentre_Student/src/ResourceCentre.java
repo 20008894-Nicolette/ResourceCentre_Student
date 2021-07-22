@@ -225,7 +225,7 @@ public class ResourceCentre {
 	}
 
 	public static boolean doLoanChromebook(ArrayList<Chromebook> chromebookList, String tag, String dueDate) {
-		// write your code here
+		// write your code here (Done by Dexter)
 		boolean isLoaned = false;
 
 		for (int i = 0; i < chromebookList.size(); i++) {
@@ -242,7 +242,7 @@ public class ResourceCentre {
 	}
 
 	public static void loanChromebook(ArrayList<Chromebook> chromebookList) {
-		// write your code here
+		// write your code here (Done by Dexter)
 		ResourceCentre.viewAllChromebook(chromebookList);
 		String tag = Helper.readString("Enter asset tag > ");
 		String due = Helper.readString("Enter due date > ");
