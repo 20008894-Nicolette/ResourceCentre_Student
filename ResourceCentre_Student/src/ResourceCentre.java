@@ -282,12 +282,12 @@ public class ResourceCentre {
 	public static boolean doReturnChromebook(ArrayList<Chromebook> chromebookList, String tag) {
 		boolean isReturned = false;
 		// write your code here
+		//test2
 		return isReturned;
 	}
 
 	public static void returnChromebook(ArrayList<Chromebook> chromebookList) {
 		// write your code here
-		//test
 
 	}
 
