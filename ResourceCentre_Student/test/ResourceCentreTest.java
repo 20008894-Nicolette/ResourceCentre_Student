@@ -172,12 +172,18 @@ public class ResourceCentreTest {
 	public void testDoReturnCamcorder() {
 		// fail("Not yet implemented");
 		// write your code here
+		
+		ArrayList<Camcorder> borrowed = null;
+		for (int i = 0; i < camcorderList.size(); i ++) {
+			if(camcorderList.get(i).getIsAvailable() == false) {
+				borrowed.add(camcorderList.get(i));
+			}
+		}
 		// Test if the Item list is not null
-		assertNotNull("Test if these is a valid Camcorder arraylist to loan from", camcorderList);
+		assertNotNull("Test if these are the available Camcorders to return", borrowed);
 
 		// Test if the Item list is null and shows an exception error
-		assertNull("Test if there is no valid Camcorder arraylist to loan from", camcorderList);
-		
+		assertNull("Test if there is no valid Camcorder arraylist to return from", borrowed);
 		
 
 	}
@@ -187,10 +193,17 @@ public class ResourceCentreTest {
 		// fail("Not yet implemented");
 		// write your code here
 		// Test if the Item list is not null
-		assertNotNull("Test if these is a valid Chromebook arraylist to loan from", chromebookList);
+		
+		ArrayList<Chromebook> borrowed = null;
+		for (int i = 0; i < chromebookList.size(); i ++) {
+			if(chromebookList.get(i).getIsAvailable() == false) {
+				borrowed.add(chromebookList.get(i));
+			}
+		}
+		assertNotNull("Test if these are the available Chromebook to return", borrowed);
 
 		// Test if the Item list is null and shows an exception error
-		assertNull("Test if there is no valid Chromebook arraylist to loan from", chromebookList);
+		assertNull("Test if there is no valid Chromebook arraylist to return from", borrowed);
 		
 	}
 
