@@ -83,10 +83,10 @@ public class ResourceCentreTest {
 	}
 
 	@Test
+//--------------------------------------NICOLETTE---------------------------------------------------------------
 	public void testRetrieveAllChromebook() {
 		// fail("Not yet implemented");
 		// write your code here
-		// done by Nicolette
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", chromebookList);
 
 		// test if the list of camcorders retrieved from the SourceCentre is empty
