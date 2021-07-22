@@ -116,7 +116,7 @@ public class ResourceCentreTest {
 	@Test
 	public void testDoLoanChromebook() {
 		// fail("Not yet implemented");
-		// write your code here (Done By Dexter)
+		// write your code here (Done By Dexter C)
 
 		// Test if the Item list is not null
 		assertNotNull("Test if these is a valid Chromebook arraylist to loan from", chromebookList);
