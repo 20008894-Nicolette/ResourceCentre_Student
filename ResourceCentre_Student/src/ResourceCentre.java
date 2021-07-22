@@ -23,7 +23,6 @@ public class ResourceCentre {
 				// View all items
 				ResourceCentre.viewAllCamcorder(camcorderList);
 				ResourceCentre.viewAllChromebook(chromebookList);
-				//Nicolette testing 123 456
 
 			} else if (option == 2) {
 				// Add a new item
@@ -148,11 +147,7 @@ public class ResourceCentre {
 
 	public static String retrieveAllChromebook(ArrayList<Chromebook> chromebookList) {
 		String output = "";
-		ResourceCentre.setHeader("CHROMEBOOK LIST");
-		output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION", "AVAILABLE",
-				"DUE DATE", "OPTICAL ZOOM");
-		output += retrieveAllChromebook(chromebookList);
-		System.out.println(output);
+		// write your code here
 		return output;
 	}
 
@@ -168,27 +163,53 @@ public class ResourceCentre {
 		String tag = Helper.readString("Enter asset tag > ");
 		String description = Helper.readString("Enter description > ");
 		int zoom = Helper.readInt("Enter optical zoom > ");
-
 		Camcorder cc = new Camcorder(tag, description, zoom);
 		return cc;
 
 	}
-
+	
+	// JiaJun
 	public static void addCamcorder(ArrayList<Camcorder> camcorderList, Camcorder cc) {
-
-		camcorderList.add(cc);
-		System.out.println("Camcorder added");
+		
+		if (inputCamcorder().getAssetTag() != null && inputCamcorder().getDescription() != null 
+				&& inputCamcorder().getOpticalZoom() != 0) {
+			for (int i = 1 ; i < camcorderList.size(); i ++) {
+				if (inputCamcorder().getAssetTag() != camcorderList.get(i).getAssetTag() && 
+						inputCamcorder().getDescription() != camcorderList.get(i).getDescription()
+						&& inputCamcorder().getOpticalZoom() != camcorderList.get(i).getOpticalZoom()) {
+					camcorderList.add(cc);
+					System.out.println("Camcorder added");
+				}
+			}
+		} else {
+			System.out.println("Task failed!");
+		}
 	}
 
 	public static Chromebook inputChromebook() {
-		Chromebook cb = null;
 		// write your code here
+		String assetTag = Helper.readString("Enter asset tag");
+		String description = Helper.readString("Enter description: ");
+		String os = Helper.readString("Enter installed system: ");
+		Chromebook cb = new Chromebook(assetTag, description, os);
 		return cb;
-
 	}
-
+	
+	// JiaJun
 	public static void addChromebook(ArrayList<Chromebook> chromebookList, Chromebook cb) {
-		// write your code here
+		if (inputChromebook().getAssetTag() != null && inputChromebook().getDescription() != null 
+				&& inputChromebook().getOs() != null) {
+			for (int i = 1 ; i < chromebookList.size(); i ++) {
+				if (inputChromebook().getAssetTag() != chromebookList.get(i).getAssetTag() && 
+						inputChromebook().getDescription() != chromebookList.get(i).getDescription()
+						&& inputChromebook().getOs() != chromebookList.get(i).getOs()) {
+					chromebookList.add(cb);
+					System.out.println("Camcorder added");
+		} else {
+			System.out.println("Task failed!");
+		}
+			}
+		}
 	}
 
 	// ================================= Option 3 Loan an item (CRUD - Update)
