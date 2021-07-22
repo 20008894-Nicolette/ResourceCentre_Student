@@ -23,6 +23,7 @@ public class ResourceCentre {
 				// View all items
 				ResourceCentre.viewAllCamcorder(camcorderList);
 				ResourceCentre.viewAllChromebook(chromebookList);
+				//Nicolette testing 123 456
 
 			} else if (option == 2) {
 				// Add a new item
@@ -147,7 +148,11 @@ public class ResourceCentre {
 
 	public static String retrieveAllChromebook(ArrayList<Chromebook> chromebookList) {
 		String output = "";
-		// write your code here
+		ResourceCentre.setHeader("CHROMEBOOK LIST");
+		output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION", "AVAILABLE",
+				"DUE DATE", "OPTICAL ZOOM");
+		output += retrieveAllChromebook(chromebookList);
+		System.out.println(output);
 		return output;
 	}
 
