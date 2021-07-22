@@ -148,9 +148,9 @@ public class ResourceCentre {
 //-------------------------------NICOLETTE----------------------------------------------------------------------------
 	public static String retrieveAllChromebook(ArrayList<Chromebook> chromebookList) {
 		String output = "";
-<<<<<<< HEAD
+
 		// write your code here
-=======
+
 		// write code 
 				
 		ResourceCentre.setHeader("CHROMEBOOK LIST");
@@ -165,7 +165,6 @@ public class ResourceCentre {
 					chromebookList.get(i).getDueDate(), chromebookList.get(i).getOs());
 		}
 		
->>>>>>> branch 'master' of https://github.com/20008894-Nicolette/ResourceCentre_Student.git
 		return output;
 		
 		
