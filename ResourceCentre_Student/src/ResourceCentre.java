@@ -253,6 +253,7 @@ public class ResourceCentre {
 
 	public static void loanCamcorder(ArrayList<Camcorder> camcorderList) {
 		ResourceCentre.viewAllCamcorder(camcorderList);
+		//Test 24/07/2021
 		String tag = Helper.readString("Enter asset tag > ");
 		String due = Helper.readString("Enter due date > ");
 		Boolean isLoaned = doLoanCamcorder(camcorderList, tag, due);
