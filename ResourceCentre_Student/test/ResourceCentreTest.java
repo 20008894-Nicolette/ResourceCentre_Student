@@ -114,14 +114,48 @@ public class ResourceCentreTest {
 
 		assertEquals("Check that ViewAllChromebooklist", testOutput, allChromebook);
 	}
-
+//-----------START--------------------------//20006739-Revathi//-------------------------------------
+	/* 
+	//is a Boolean method
+	 */
 	@Test
 	public void testDoLoanCamcorder() {
 		// fail("Not yet implemented");
 		// write your code here
-
+	
+		
+		camcorderList.add(cc1);
+		camcorderList.add(cc2);
+		
+		//Test that the item list is not null
+		assertTrue("Test that camcorder inventory exists: ",(camcorderList.size()>0));
+		assertNotNull(camcorderList);
+		//Test that dlc returns true for a valid loan
+		String tag = "CC0011";
+		String dueDate = "10 Jan 21";
+	
+		assertTrue(ResourceCentre.doLoanCamcorder(camcorderList,tag,dueDate));
+		
+		//Test that due date was set successfully
+		String actualOutput = cc1.getDueDate();
+		assertEquals(dueDate,actualOutput);
+		
+		//Test that item onLoan is not available 
+		assertFalse(cc1.getIsAvailable());
+		
+		//Test that other items not loaned are still available
+		for (Camcorder cc: camcorderList)
+		{
+			if (cc != cc1)
+			{
+				assertTrue(cc.getIsAvailable());
+			}
+		}
+		//Test that dlc returns false for an invalid loan ie. item already borrowed
+		assertFalse(ResourceCentre.doLoanCamcorder(camcorderList,tag,dueDate));
 	}
-
+//-------------END---------------//20006739-Revathi//------------------------------------------------
+	
 	@Test
 	public void testDoLoanChromebook() {
 		// fail("Not yet implemented");
@@ -167,27 +201,36 @@ public class ResourceCentreTest {
 		assertFalse("Test that the chromebook does not exist and is unavailable to loan", true);
 
 	}
+//-----------START--------------------------//20006739-Revathi//-------------------------------------
 
 	@Test
 	public void testDoReturnCamcorder() {
 		// fail("Not yet implemented");
 		// write your code here
 		
-		ArrayList<Camcorder> borrowed = null;
-		for (int i = 0; i < camcorderList.size(); i ++) {
-			if(camcorderList.get(i).getIsAvailable() == false) {
-				borrowed.add(camcorderList.get(i));
-			}
-		}
-		// Test if the Item list is not null
-		assertNotNull("Test if these are the available Camcorders to return", borrowed);
-
-		// Test if the Item list is null and shows an exception error
-		assertNull("Test if there is no valid Camcorder arraylist to return from", borrowed);
 		
-
+		camcorderList.add(cc1);
+		camcorderList.add(cc2);
+		// Test if the Item list is not null
+		assertNotNull(camcorderList);
+		
+		// Loan item added out and test drcc() is true
+		String dueDate = "Book due";
+		ResourceCentre.doLoanCamcorder(camcorderList, cc1.getAssetTag(), dueDate);
+		
+		assertTrue(ResourceCentre.doReturnCamcorder(camcorderList, cc1.getAssetTag()));
+		
+		//test that availability is reset to true
+		assertTrue(cc1.getIsAvailable());
+		
+		//test drcc() is false for item which is not on loan
+		assertFalse(ResourceCentre.doReturnCamcorder(camcorderList, cc2.getAssetTag()));
+				
+		assertFalse(ResourceCentre.doReturnCamcorder(camcorderList, cb2.getAssetTag()));
+		
 	}
-
+//-------------END---------------//20006739-Revathi//------------------------------------------------
+	
 	@Test
 	public void testDoReturnChromebook() {
 		// fail("Not yet implemented");
